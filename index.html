@@ -11,7 +11,7 @@
         :root { --theme-color: #7DA1DE; }
 
         /* 1. 初始密码页 */
-        #landing-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; background: rgba(255,255,255,0.9); backdrop-filter: blur(5px); }
+#landing-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; }
         .landing-avatar { width: 120px; height: 120px; object-fit: cover; margin-bottom: 20px; }
         .landing-info { text-align: center; margin-bottom: 30px; }
         .landing-info h1 { font-size: 24px; margin-bottom: 10px; color: #111; }
@@ -20,6 +20,16 @@
         .password-box span { font-size: 14px; color: #333; }
         .password-box input { padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; outline: none; font-size: 14px; }
         .password-box button { padding: 8px 16px; background: var(--theme-color); color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+/* 新增的半透明气泡框样式 */
+.bubble-box {
+    background: rgba(255, 255, 255, 0.85); /* 半透明白色背景 */
+    padding: 40px 30px 30px 30px; /* 上内边距留大一点，给头像腾位置 */
+    border-radius: 16px; /* 圆角 */
+    text-align: center;
+    width: 460px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 加点阴影 */
+    margin-top: -80px; /* 👈 关键！把整个框往上提，头像就露出来一半了 */
+}
 
         /* 2. 页眉与导航 */
         header { height: 60px; background: var(--theme-color); display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 50; }
@@ -74,18 +84,21 @@
 
     <div id="landing-page">
         <img id="landing-avatar" class="landing-avatar" src="" alt="Avatar">
-        <div class="landing-info">
-            <h1>senako</h1>
-            <p id="landing-intro"></p>
-            <p id="landing-signature" style="font-style: italic; color: #888;"></p>
-        </div>
-        <div class="password-box">
-            <span>请输入密码</span>
-            <input type="password" id="password-input" placeholder="...">
-            <button onclick="handleLogin()">进入</button>
+        
+        <!-- 👇 下面这行是新增的“气泡框”外壳 -->
+        <div class="bubble-box">
+            <div class="landing-info">
+                <h1>senako</h1>
+                <p id="landing-intro"></p>
+                <p id="landing-signature" style="font-style: italic; color: #888;"></p>
+            </div>
+            <div class="password-box">
+                <span>请输入密码</span>
+                <input type="password" id="password-input" placeholder="...">
+                <button onclick="handleLogin()">进入</button>
+            </div>
         </div>
     </div>
-
     <header class="hidden" id="main-header">
         <button class="nav-toggle-btn" onclick="toggleNav()">Menu</button>
     </header>
@@ -161,23 +174,23 @@
     // 👇 【配置区】请在这里修改你的所有个性化设置
     // ==========================================
     const CONFIG = {
-        ADMIN_PASSWORD: "00998877",
+        ADMIN_PASSWORD: "098poi",
         VISITOR_PASSWORD: "senako",
         SECRET_PASSWORD: "himitsu271",
         AVATAR_URL: "avatar.png",
         SIGNATURE: "啊哈哈哈哈哈哈哈哈哈",
         INTRO_TEXT: "这里senako。",
-        ABOUT_TEXT: "这里senako。\n\n可扩：1916752887\n成分：pjsk|术力口|三无Marblue|maimai|phi|推理 \n推：knd|miku|三无|milk|俊达萌\n产品：玄中 \n日常：画画|看推理|打音游|写歌|解谜\n拒：25时一切相关|大众雷|术萌|负能",
+        ABOUT_TEXT: "你好呀，这里senako，存放一些日常碎碎念。\n背景是三无老大（参拜）\n\n可扩：1916752887\n成分：pjsk|术力口|三无Marblue|maimai|phi|推理 \n推：knd|miku|三无|milk|俊达萌\n产品：玄中 \n日常：画画|看推理|打音游|写歌|解谜\n拒：25时一切相关|大众雷|术萌|负能",
         PHOTO_LEFT: { title: "oc/自设", images: ["photo-l1.jpg", "photo-l2.jpg"] },
         PHOTO_RIGHT: { title: "我推/我产", images: ["photo-r1.jpg", "photo-r2.jpg"] },
         PHOTO_BOTTOM: { title: "作品", images: ["photo-b1.jpg", "photo-b2.jpg", "photo-b3.jpg"] },
-        HOME_BG: { url: "bg-home.jpg", opacity: 0.3 },
-        DATE_BG: { url: "bg-date.jpg", opacity: 0.3 },
-        SECRET_BG: { url: "bg-secret.jpg", opacity: 0.3 },
-        ABOUT_BG: { url: "bg-about.jpg", opacity: 0.3 },
-        LANDING_BG: { url: "bg-landing.jpg", opacity: 0.3 },
-        LIKE_ICON_URL: "like-icon.png",
-        LIKE_EFFECT_URL: "like-effect.png",
+        HOME_BG: { url: "zhuyebeijing.jpg", opacity: 0.3 },//senako碎碎念背景
+        DATE_BG: { url: "zhuyebeijing.jpg", opacity: 0.3 },//日期查找背景
+        SECRET_BG: { url: "bg-secret.jpg", opacity: 0.3 },//himitsu背景
+        ABOUT_BG: { url: "zhuyebeijing.jpg", opacity: 0.3 },//关于senako背景
+        LANDING_BG: { url: "chushi.jpg", opacity: 0.78},//初始页面背景
+        LIKE_ICON_URL: "like-icon.png",//点赞图标
+        LIKE_EFFECT_URL: "like-effect.png",//点赞动画
         TIPS_ARRAY: [
             "这是一条tips",
             "多喝热水~",
@@ -211,6 +224,7 @@
 
         ],
         BLOGS: [
+{ date: "2026-08-22", content: "两天从w3飞升到w34?\n![图片](sea.jpg)\n↑（这是一张图片，自己想象一下叭）。", type: "normal" },
             { date: "2026-08-22", content: "1：31了哈哈写到这个点了困得不行。", type: "normal" },
             { date: "2026-08-21", content: "太邪恶了这个网站。", type: "normal" },
             { date: "2026-08-20", content: "和代码斗智斗勇一晚上的产物。", type: "normal" },
@@ -303,6 +317,7 @@
         const bgLayer = document.getElementById('bg-layer');
         bgLayer.style.backgroundImage = "url('" + bgConfig.url + "')";
         bgLayer.style.opacity = bgConfig.opacity;
+console.log('背景已更新为:', bgConfig.url);
     }
 
     // 渲染博客卡片
@@ -316,7 +331,14 @@
         blogs.forEach(blog => {
             const card = document.createElement('div');
             card.className = 'blog-card';
-            card.innerHTML = '<div class="blog-date">' + blog.date + '</div><div class="blog-content">' + blog.content + '</div>';
+            
+            // 1. 如果有封面图，就先显示图片
+            let imgHtml = blog.img ? `<img src="${blog.img}" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">` : '';
+            
+            // 2. 把文字里的 ![图片名](图片链接) 自动变成真正的图片
+            let processedContent = blog.content.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" style="width: 100%; border-radius: 10px; margin: 10px 0;">');
+            
+            card.innerHTML = `${imgHtml}<div class="blog-date">${blog.date}</div><div class="blog-content">${processedContent}</div>`;
             container.appendChild(card);
         });
     }
@@ -370,6 +392,7 @@
     window.onload = function() {
         // 先初始化所有页面元素（头像、博客列表、照片、Tips等）
         initElements();
+    updateBackground(CONFIG.LANDING_BG);
 
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
             // 已经登录过 → 直接进入博客，并恢复到上次停留的页面
