@@ -69,7 +69,7 @@
 
         /* 5. 点赞特效 */
         .like-btn { position: fixed; bottom: 100px; right: 30px; display: flex; flex-direction: column; align-items: center; cursor: pointer; z-index: 30; }
-        .like-btn img { width: 40px; height: 40px; transition: transform 0.2s; }
+        .like-btn img { width: 160px; height: 160px; transition: transform 0.2s; }
         .like-btn span { font-size: 11px; color: #888; margin-top: 5px; }
         .like-btn:active img { transform: scale(1.2); }
         .like-effect { position: fixed; pointer-events: none; z-index: 31; animation: floatUp 1s ease-out forwards; }
@@ -132,7 +132,7 @@
         </section>
         <section id="page-secret" class="page-section">
             <div id="secret-lock" style="text-align: center; margin-top: 50px;">
-                <p style="margin-bottom: 15px; color: #555;">这是一个加密板块</p>
+                <p style="margin-bottom: 15px; color: #555;">想不到吧还有解谜部分（）</p>
                 <div class="password-box" style="justify-content: center;">
                     <input type="password" id="secret-password-input" placeholder="ヒミツ密码">
                     <button onclick="unlockSecret()">解锁</button>
@@ -166,7 +166,7 @@
 
     <div class="like-btn hidden" id="like-btn" onclick="triggerLike(event)">
         <img id="like-icon" src="" alt="Like">
-        <span>click senakovo！</span>
+        <span>click kanede！</span>
     </div>
 
 <script>
@@ -178,9 +178,9 @@
         VISITOR_PASSWORD: "senako",
         SECRET_PASSWORD: "himitsu271",
         AVATAR_URL: "avatar.png",
-        SIGNATURE: "啊哈哈哈哈哈哈哈哈哈",
-        INTRO_TEXT: "这里senako。",
-        ABOUT_TEXT: "你好呀，这里senako，存放一些日常碎碎念。\n背景是三无老大（参拜）\n\n可扩：1916752887\n成分：pjsk|术力口|三无Marblue|maimai|phi|推理 \n推：knd|miku|三无|milk|俊达萌\n产品：玄中 \n日常：画画|看推理|打音游|写歌|解谜\n拒：25时一切相关|大众雷|术萌|负能",
+        SIGNATURE: "碎碎念/发疯/日常/随笔/感悟",
+        INTRO_TEXT: "senako主页喔。",
+        ABOUT_TEXT: "你好呀，这里存放一些senako日常碎碎念。\n背景是三无老大（参拜）\n\n可扩：1916752887\n成分：术力口|三无Marblue|maimai|phi|推理 |pjsk已退\n推：knd|miku|三无|milk|俊达萌\n产品：玄中 \n日常：画画|看推理|打音游|写歌|解谜\n拒：25时相关一切|大众雷|术萌|负能",
         PHOTO_LEFT: { title: "oc/自设", images: ["photo-l1.jpg", "photo-l2.jpg"] },
         PHOTO_RIGHT: { title: "我推/我产", images: ["photo-r1.jpg", "photo-r2.jpg"] },
         PHOTO_BOTTOM: { title: "作品", images: ["photo-b1.jpg", "photo-b2.jpg", "photo-b3.jpg"] },
@@ -189,8 +189,8 @@
         SECRET_BG: { url: "bg-secret.jpg", opacity: 0.3 },//himitsu背景
         ABOUT_BG: { url: "zhuyebeijing.jpg", opacity: 0.3 },//关于senako背景
         LANDING_BG: { url: "chushi.jpg", opacity: 0.78},//初始页面背景
-        LIKE_ICON_URL: "like-icon.png",//点赞图标
-        LIKE_EFFECT_URL: "like-effect.png",//点赞动画
+        LIKE_ICON_URL: "dianzantubiao.png",//点赞图标
+        LIKE_EFFECT_URL: "dianzandonghua.PNG",//点赞动画
         TIPS_ARRAY: [
             "这是一条tips",
             "多喝热水~",
@@ -216,19 +216,21 @@
 "up↑side↓up↑side↓down↓up↑side↓down↓side↓up↑and↓down↓",
 "左边，右边，露出尖尖的牙齿，啪啪啪，哈哈你是王。",
 "刷新网页会出现新的tips哦。",
-"刷新网页会出现新的tips哦。",
 "*(一阵劲爆的电吉他)",
 "x x xxx",
 "感谢千问对senako网站的大力支持。",
-"刷新网页会出现新的tips哦。",
+
 
         ],
         BLOGS: [
-{ date: "2026-08-22", content: "两天从w3飞升到w34?\n![图片](sea.jpg)\n↑（这是一张图片，自己想象一下叭）。", type: "normal" },
+{ date: "2027-06-27", content: `[大概是一条置顶]\n”senako碎碎念“是senako创建出来为了存放那些不敢发出来，但是又很想说的文字/感悟/记录等。算是伪个人博客（w），实际上是非常拧巴的一个人，通过senako这个皮套可以说出很多平时发出来被看到会不安です的东西，大概不用再考虑别人的感受了，senako想写什么写什么ww。\n包含：发疯和碎碎念/轻度负能/一些黑泥/无处安放的焦虑/邪恶的小想法w\n除了背景其他美工部分都是我画的喔ovo\n\ntips：刷新网页会出现新的tips喔`, type: "normal" },
+{ date: "2026-08-24", content: `这段时间绘圈鉴ai像失控了一样，说实话很担心这种局面，从前几年水星之后绘圈鉴ai像刹车失灵，似乎朝着不可控的趋势发展。我并不认为这是一件好事，这里也暂时不讨论其益处。或许将其能看作“画师为了维护自己作品的产权"或者”单主为了保证自己花出去的钱没有白花，约到的稿件质量在线“而集体发起的坚决抵制ai活动，但是误伤的风险其实很大，鉴ai几乎没什么成本，空口无凭也能在评论区打出”这是ai吗“然后跑路，可是这对被误鉴的小画师的打击却是巨大的。要花大量的时间和精力在对赌上，一边要澄清一边要调整心态，还有因为被鉴导致的经济损失。看了很多鉴ai的案例我已经不太敢随便把作品发到网上了TT，代入一些没有使用ai的被鉴方真的好恐怖，所有人都跑过来围攻你，你百口莫辩，就算放出直播和绘画过程，他们还是能从中挖出那些所谓你使用ai的蛛丝马迹，或许你真的没用ai但是经历过水星事件他们已经不相信你了。很吓人，接单的画师被鉴还能说得过去，画同人的为爱发电的也被鉴看得我好无助，画画的时候会忍不住思考如果我被鉴了该怎么自证，最后得出结论自证不了的，现在已经进化成就算露手直播自证也无法被相信了。\n一开始我还没怎么关注想着他们鉴他们的我发我的又不混绘圈咋可能鉴到我头上。戳啦，只要你发画了就有被鉴的风险口牙^^\n虽然但是，用ai还不承认的小画师你们似啦^`, type: "normal" },
+ { date: "2026-08-23", content: "我画不出来。好绝望啊。一直在画史。\n就这样画不出来画，做不出来歌，写不出来文\n大概是低创造力。", type: "normal" },
             { date: "2026-08-22", content: "1：31了哈哈写到这个点了困得不行。", type: "normal" },
-            { date: "2026-08-21", content: "太邪恶了这个网站。", type: "normal" },
-            { date: "2026-08-20", content: "和代码斗智斗勇一晚上的产物。", type: "normal" },
-            { date: "2026-08-19", content: "恭喜你发现这里。", type: "secret" }
+            { date: "2026-08-21", content: "舞萌好好玩。 ", type: "normal" },
+            { date: "2026-08-20", content: "和代码斗智斗勇两个晚上的产物。", type: "normal" },
+{ date: "2026-08-22", content: "这是一条用来放图片的模板\n![图片](sea.jpg)\n↑", type: "normal" },
+            { date: "2056-08-19", content: "恭喜你发现这里。\n[解锁成就]：黑化的senako>", type: "secret" }
         ]
     };
     // ==========================================
