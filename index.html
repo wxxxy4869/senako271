@@ -65,7 +65,7 @@
         .photo-group-bottom { grid-column: span 2; }
 
         /* 4. 页脚与Tips */
-        footer { background: #f0f0f0; padding: 20px; text-align: center; font-size: 13px; color: #888; margin-top: auto; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 10; }
+        footer { background: var(--theme-color); padding: 20px; text-align: center; font-size: 13px; color: #fff; margin-top: auto; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 10; }
 
         /* 5. 点赞特效 */
         .like-btn { position: fixed; bottom: 100px; right: 30px; display: flex; flex-direction: column; align-items: center; cursor: pointer; z-index: 30; }
@@ -100,7 +100,7 @@
         </div>
     </div>
     <header class="hidden" id="main-header">
-        <button class="nav-toggle-btn" onclick="toggleNav()">Menu</button>
+        <button class="nav-toggle-btn" onclick="toggleNav()">菜单</button>
     </header>
 
     <nav id="side-nav">
@@ -109,7 +109,7 @@
             <span>senako</span>
         </div>
         <div class="nav-item active" onclick="switchPage('home', this)">senako碎碎念</div>
-        <div class="nav-item" onclick="switchPage('date', this)">日期</div>
+        <div class="nav-item" onclick="switchPage('date', this)">查找</div>
         <div class="nav-item" onclick="switchPage('secret', this)">ヒミツ</div>
         <div class="nav-item" onclick="switchPage('about', this)">关于senako</div>
     </nav>
@@ -123,14 +123,23 @@
             <div id="blog-list"></div>
         </section>
         <section id="page-date" class="page-section">
-            <h2 style="margin-bottom: 20px;">日期查找</h2>
+            <!-- 👇 第一部分：关键词搜索 -->
+            <h2 style="margin-bottom: 20px;">关键词搜索</h2>
+            <div class="date-search-box">
+                <input type="text" id="keyword-input" placeholder="输入关键词搜索碎碎念...">
+                <button onclick="searchByKeyword()">搜索</button>
+            </div>
+            
+            <!-- 👇 第二部分：日期查找 -->
+            <h2 style="margin: 30px 0 20px 0;">日期查找</h2>
             <div class="date-search-box">
                 <input type="date" id="date-input">
                 <button onclick="searchByDate()">搜索</button>
             </div>
+            
+            <!-- 👇 两个搜索的结果都会显示在这里 -->
             <div id="date-result-list"></div>
-        </section>
-        <section id="page-secret" class="page-section">
+        </section>        <section id="page-secret" class="page-section">
             <div id="secret-lock" style="text-align: center; margin-top: 50px;">
                 <p style="margin-bottom: 15px; color: #555;">想不到吧还有解谜部分（）</p>
                 <div class="password-box" style="justify-content: center;">
@@ -201,7 +210,6 @@
  "DIVELA是神。",
  "天丛云是神。",
  "嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿",
- "冷知识：senako制作这个网站牺牲了一晚上睡眠。",
  "喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵",
  "生日快乐！",
  "新年快乐！",
@@ -225,7 +233,8 @@
 
         ],
         BLOGS: [
- { date: "2026-08-24", content: `玄中真的太美味了建议所有搞日推的都去支持我们零食杏仁的暗黑馆好吗orz，完全无法招架这种朦胧的、无法言说的、没有来得及挑明就死了的、似是而非的关系。个人更喜欢吃这种暗戳戳的而非很明显很直接到处撒糖的。而且他们是双箭头啊啊，都对对方吐露过“那种情感”，玄儿“十年百年我都会等你”，中村”玄儿我对你“都特别好品！向对方传达出了“我对你...”（自己品吧说出来就不灵了）这种无法用语言形容的情感。（以下原文）\n”玄儿！“我攥着皱巴巴的礼帽，再次喊了一声朋友的名字。这里面包含了我对他难以言表的矛盾之情。”我——我对你……“\n放个五字箴言原文在这里。只是中也君要用一辈子来说这句没说完的话了TT/不希望把话说完，也不希望新作出现玄儿的后续（其实很想知道！玄儿一定没有死对吧你和中也君一定还活着TT）我认为这种没说完的话没写清楚的结局才是最好品的啊啊啊`, type: "normal" },
+            { date: "2026-08-25", content: `想用日语说“真的很好吃”但是下意识说出亲加哦一希，我就知道我完蛋了。`, type: "normal" },
+ { date: "2026-08-24", content: `玄中真的太美味了建议所有搞日推的都去支持我们零食杏仁的暗黑馆好吗orz，完全无法招架这种朦胧的、无法言说的、没有来得及挑明就死了的、似是而非的关系。个人更喜欢吃这种暗戳戳的而非很明显很直接到处撒糖的。而且他们是双箭头啊啊，都对对方吐露过“那种情感”，玄儿“十年百年我都会等你”，中村”玄儿我对你“都特别好品！向对方传达出了“我对你...”（自己品吧语言是无法描述的）这种无法用语言形容的情感。不希望中村把话说完，也不希望新作出现玄儿的后续，其实很想知道，但是这种没说完的话没写清楚的结局才是最好品的啊啊啊`, type: "normal" },
             { date: "2026-08-24", content: "一直下雨导致无法出勤。", type: "normal" },
 { date: "2027-06-27", content: `[大概是一条置顶]\n* ”senako碎碎念“是senako创建出来为了存放那些不敢发出来，但是又很想说的文字/感悟/记录等。算是伪个人博客（w），皮下实际上是非常拧巴的一个人，通过senako这个皮套可以说出很多平时发出来被看到会不安です的东西，大概不用再考虑别人的感受了，senako想写什么写什么ww。\n* 包含：发疯和碎碎念/轻度负能/一些黑泥/无处安放的焦虑/邪恶的小想法w\n* 除了背景其他美工部分都是我画的喔ovo\n\n* tips：刷新网页会出现新的tips喔`, type: "normal" },
 { date: "2026-08-24", content: `这段时间绘圈鉴ai像失控了一样，说实话很担心这种局面，从前几年水星之后绘圈鉴ai像刹车失灵，似乎朝着不可控的趋势发展。我并不认为这是一件好事，这里也暂时不讨论其益处。或许将其能看作“画师为了维护自己作品的产权"或者”单主为了保证自己花出去的钱没有白花，约到的稿件质量在线“而集体发起的坚决抵制ai活动，但是误伤的风险其实很大，鉴ai几乎没什么成本，空口无凭也能在评论区打出”这是ai吗“然后跑路，可是这对被误鉴的小画师的打击却是巨大的。要花大量的时间和精力在对赌上，一边要澄清一边要调整心态，还有因为被鉴导致的经济损失。看了很多鉴ai的案例我已经不太敢随便把作品发到网上了TT，代入一些没有使用ai的被鉴方真的好恐怖，所有人都跑过来围攻你，你百口莫辩，就算放出直播和绘画过程，他们还是能从中挖出那些所谓你使用ai的蛛丝马迹，或许你真的没用ai但是经历过水星事件他们已经不相信你了。很吓人，接单的画师被鉴还能说得过去，画同人的为爱发电的也被鉴看得我好无助，画画的时候会忍不住思考如果我被鉴了该怎么自证，最后得出结论自证不了的，现在已经进化成就算露手直播自证也无法被相信了。\n一开始我还没怎么关注想着他们鉴他们的我发我的又不混绘圈咋可能鉴到我头上。戳啦，只要你发画了就有被鉴的风险口牙^^\n虽然但是，用ai还不承认的小画师你们似啦^`, type: "normal" },
@@ -234,7 +243,10 @@
             { date: "2026-08-21", content: "舞萌好好玩。 ", type: "normal" },
             { date: "2026-08-20", content: "和代码斗智斗勇两个晚上的产物。", type: "normal" },
 { date: "2026-08-22", content: "这是一条用来放图片的模板\n![图片](sea.jpg)\n↑", type: "normal" },
-            { date: "2056-08-19", content: "恭喜你发现这里。\n[解锁成就]：黑化的senako^", type: "secret" }
+
+            { date: "2031-03-09", content: "恭喜你发现这里。\n[解锁]：黑化的senako^", type: "secret" },
+{ date: "2026-08-25", content: "那些针对过我的老石，四字呀。\n一想到下学期还要上那个死登的课就想扎小人^^死登我惹你了？", type: "secret" },
+
         ]
     };
     // ==========================================
@@ -350,12 +362,25 @@ console.log('背景已更新为:', bgConfig.url);
         });
     }
 
-    // 按日期搜索博客
-    function searchByDate() {
-        const dateVal = document.getElementById('date-input').value;
-        const filtered = CONFIG.BLOGS.filter(b => b.date === dateVal && b.type === 'normal');
-        renderBlogs(filtered, 'date-result-list');
-    }
+        // 日期查找功能
+        function searchByDate() {
+            const dateVal = document.getElementById('date-input').value;
+            const filtered = CONFIG.BLOGS.filter(b => b.date === dateVal && b.type === 'normal');
+            renderBlogs(filtered, 'date-result-list');
+        }
+
+        // 关键词搜索功能
+        function searchByKeyword() {
+            const keyword = document.getElementById('keyword-input').value.trim().toLowerCase();
+            if (!keyword) {
+                renderBlogs(CONFIG.BLOGS, 'date-result-list');
+                return;
+            }
+            const filteredBlogs = CONFIG.BLOGS.filter(blog => 
+                blog.content.toLowerCase().includes(keyword)
+            );
+            renderBlogs(filteredBlogs, 'date-result-list');
+        }
 
     // 解锁加密板块
     function unlockSecret() {
